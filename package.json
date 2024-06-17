@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "postbuild": "npm run copy:collection && npm run copy:lib",
     "build": "rm -rf dist && tsc --project tsconfig.json",
     "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
@@ -21,9 +21,11 @@
   "schematics": "./dist/collection.json",
   "dependencies": {
     "@angular-devkit/core": "^18.0.4",
-    "@angular-devkit/schematics": "^18.0.4"
+    "@angular-devkit/schematics": "^18.0.4",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
+    "@types/pluralize": "^0.0.33",
     "cpx2": "^7.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"

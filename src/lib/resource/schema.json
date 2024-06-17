@@ -7,13 +7,53 @@
     "name": {
       "type": "string",
       "description": "The name of the resource.",
-      "x-prompt": "What name would you like to use for this resource (plural, e.g., \"users\")?"
+      "x-prompt": "What name would you like to use for this resource?"
     },
     "path": {
       "type": "string",
       "description": "The path of the resource.",
-      "x-prompt": "What path would you like to use for this resource (plural, e.g., \"src\")?"
+      "x-prompt": "What path would you like to use for this resource?",
+      "default": "src/apis"
+    },
+    "shouldUseCqrs": {
+      "type": "boolean",
+      "description": "Use CQRS Pattern.",
+      "x-prompt": "Should use CQRS?",
+      "default": true
+    },
+    "orm": {
+      "type": "string",
+      "description": "ORM Strategy.",
+      "default": "typeorm",
+      "enum": [
+        "typeorm",
+        "mongoose",
+        "prisma",
+        "none"
+      ],
+      "x-prompt": {
+        "message": "Which ORM do you want to use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "typeorm",
+            "label": "typeorm"
+          },
+          {
+            "value": "mongoose",
+            "label": "mongoose"
+          },
+          {
+            "value": "prisma",
+            "label": "prisma"
+          },
+          {
+            "value": "none",
+            "label": "none"
+          }
+        ]
+      }
     }
   },
-  "required": ["name", "path"]
+  "required": ["name"]
 }
