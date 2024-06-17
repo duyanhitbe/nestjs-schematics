@@ -1,0 +1,31 @@
+{
+  "name": "@duyanhit/nestjs-schematics",
+  "version": "1.0.0",
+  "description": "Personal customize Nestjs schematics",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare" : "npm run build",
+    "postbuild": "npm run copy:collection && npm run copy:lib",
+    "build": "rm -rf dist && tsc --project tsconfig.json",
+    "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
+    "copy:lib": "cpx 'src/lib/**/{files,workspace}/**/*.*' dist/lib && cpx 'src/lib/**/{files,workspace}/**/.!(gitignore)' dist/lib"
+  },
+  "author": "",
+  "license": "ISC",
+  "schematics": "./dist/collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^18.0.4",
+    "@angular-devkit/schematics": "^18.0.4"
+  },
+  "devDependencies": {
+    "cpx2": "^7.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
