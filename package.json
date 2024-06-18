@@ -1,6 +1,6 @@
 {
   "name": "@duyanhit/nestjs-schematics",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal customize Nestjs schematics",
   "main": "index.js",
   "files": [
