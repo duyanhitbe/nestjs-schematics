@@ -1,4 +1,4 @@
-import { ApiCreate, ApiDelete, ApiGetAll, ApiGetOne, ApiUpdate, HideController, PaginationDto } from '@common';
+import { ApiCreate, ApiDelete, ApiGetAll, ApiGetOne, ApiUpdate, HideController, PaginationDto } from '@duyanhit/nestjs-base';
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { ApiTags } from '@nestjs/swagger';

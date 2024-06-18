@@ -2,29 +2,40 @@
   "name": "@duyanhit/nestjs-schematics",
   "version": "1.0.0",
   "description": "Personal customize Nestjs schematics",
-  "main": "dist/index.js",
+  "main": "index.js",
   "files": [
-    "dist/**/*"
+    "base/**/*",
+    "lib/**/*",
+    "collection.json",
+    "index.js",
+    "index.d.ts"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepare": "npm run build",
+    "prebuild": "rm -rf base && rm -rf lib && rm -f index.d.ts && rm -f index.js",
     "postbuild": "npm run copy:collection && npm run copy:lib",
-    "build": "rm -rf dist && tsc --project tsconfig.json",
-    "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
-    "copy:lib": "cpx 'src/lib/**/{files,workspace}/**/*.*' dist/lib && cpx 'src/lib/**/{files,workspace}/**/.!(gitignore)' dist/lib"
+    "build": "tsc --project tsconfig.json",
+    "copy:collection": "cpx src/collection.json . && cpx 'src/lib/**/schema.json' lib",
+    "copy:lib": "cpx 'src/lib/**/{files,workspace}/**/*.*' lib && cpx 'src/lib/**/{files,workspace}/**/.!(gitignore)' lib"
   },
-  "author": "",
+  "author": "Duy Anh",
   "license": "ISC",
-  "schematics": "./dist/collection.json",
+  "schematics": "./collection.json",
   "dependencies": {
     "@angular-devkit/core": "^18.0.4",
     "@angular-devkit/schematics": "^18.0.4",
-    "pluralize": "^8.0.0"
+    "@nestjs/common": "^10.0.9",
+    "@nestjs/swagger": "^7.3.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "lodash": "^4.17.21",
+    "pluralize": "^8.0.0",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.5",
     "@types/pluralize": "^0.0.33",
     "cpx2": "^7.0.1",
     "ts-node": "^10.9.2",

@@ -1,4 +1,4 @@
-import { PaginationDto } from '@common';
+import { PaginationDto } from '@duyanhit/nestjs-base';
 
 export class GetAll<%= classify(name) %>PaginatedCommand {
 	query!: PaginationDto;

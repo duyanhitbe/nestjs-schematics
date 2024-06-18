@@ -3,12 +3,14 @@
     "module": "commonjs",
     "target": "ES2021",
     "typeRoots": ["node_modules/@types"],
-    "outDir": "dist",
+    "outDir": ".",
     "declaration": true,
     "removeComments": true,
     "sourceMap": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
-  "include": ["src/lib", "src/index.ts", "package.json", "README.md"],
+  "include": ["src/lib", "src/index.ts"],
   "exclude": ["node_modules", "src/**/*.test.ts", "src/**/files/**"]
 }

@@ -1,4 +1,4 @@
-import { BaseEntity } from '@common';
+import { BaseEntity } from '@duyanhit/nestjs-base';
 import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity } from 'typeorm';
 
