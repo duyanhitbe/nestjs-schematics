@@ -24,8 +24,8 @@ describe('Resource Factory', () => {
         '/users/users.module.ts',
         '/users/users.service.spec.ts',
         '/users/users.service.ts',
-        '/users/dto/create-user.dto.ts',
-        '/users/dto/update-user.dto.ts',
+        '/users/dto/create-__name__.dto.ts',
+        '/users/dto/update-__name__.dto.ts',
         '/users/entities/user.entity.ts',
       ]);
     });
@@ -183,15 +183,15 @@ export class UsersModule {}
 `);
     });
 
-    it('should generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual(
+    it('should generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual(
         `export class CreateUserDto {}
 `,
       );
     });
 
-    it('should generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts'))
+    it('should generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts'))
         .toEqual(`import { PartialType } from '@nestjs/swagger';
 import { CreateUserDto } from './create-user.dto';
 
@@ -300,12 +300,12 @@ export class UsersModule {}
       expect(tree.readContent('/users/entities/user.entity.ts')).toEqual('');
     });
 
-    it('should not generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual('');
+    it('should not generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual('');
     });
 
-    it('should not generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts')).toEqual('');
+    it('should not generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts')).toEqual('');
     });
   });
 
@@ -323,8 +323,8 @@ export class UsersModule {}
         '/users/users.module.ts',
         '/users/users.service.spec.ts',
         '/users/users.service.ts',
-        '/users/dto/create-user.dto.ts',
-        '/users/dto/update-user.dto.ts',
+        '/users/dto/create-__name__.dto.ts',
+        '/users/dto/update-__name__.dto.ts',
         '/users/entities/user.entity.ts',
       ]);
     });
@@ -468,15 +468,15 @@ export class UsersModule {}
 `);
     });
 
-    it('should generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual(
+    it('should generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual(
         `export class CreateUserDto {}
 `,
       );
     });
 
-    it('should generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts'))
+    it('should generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts'))
         .toEqual(`import { PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user.dto';
 
@@ -588,12 +588,12 @@ export class UsersModule {}
       expect(tree.readContent('/users/entities/user.entity.ts')).toEqual('');
     });
 
-    it('should not generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual('');
+    it('should not generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual('');
     });
 
-    it('should not generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts')).toEqual('');
+    it('should not generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts')).toEqual('');
     });
   });
 
@@ -611,8 +611,8 @@ export class UsersModule {}
         '/users/users.module.ts',
         '/users/users.service.spec.ts',
         '/users/users.service.ts',
-        '/users/dto/create-user.dto.ts',
-        '/users/dto/update-user.dto.ts',
+        '/users/dto/create-__name__.dto.ts',
+        '/users/dto/update-__name__.dto.ts',
         '/users/entities/user.entity.ts',
       ]);
     });
@@ -754,15 +754,15 @@ export class UsersModule {}
 `);
     });
 
-    it('should generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual(
+    it('should generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual(
         `export class CreateUserDto {}
 `,
       );
     });
 
-    it('should generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts'))
+    it('should generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts'))
         .toEqual(`import { PartialType } from '@nestjs/mapped-types';
 import { CreateUserDto } from './create-user.dto';
 
@@ -871,12 +871,12 @@ export class UsersModule {}
       expect(tree.readContent('/users/entities/user.entity.ts')).toEqual('');
     });
 
-    it('should not generate "CreateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/create-user.dto.ts')).toEqual('');
+    it('should not generate "Create__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/create-__name__.dto.ts')).toEqual('');
     });
 
-    it('should not generate "UpdateUserDto" class', () => {
-      expect(tree.readContent('/users/dto/update-user.dto.ts')).toEqual('');
+    it('should not generate "Update__name__Dto" class', () => {
+      expect(tree.readContent('/users/dto/update-__name__.dto.ts')).toEqual('');
     });
   });
 

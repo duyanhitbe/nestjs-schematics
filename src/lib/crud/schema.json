@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsNestResource",
+  "title": "Nest Resource Options Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the resource.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for this resource (plural, e.g., \"users\")?"
+    },
+    "type": {
+      "type": "string",
+      "description": "The transport layer.",
+      "default": "rest",
+      "enum": [
+        "rest",
+        "graphql"
+      ],
+      "x-prompt": {
+        "message": "What transport layer do you use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "rest",
+            "label": "Restful API"
+          },
+          {
+            "value": "graphql",
+            "label": "GraphQL (code first)"
+          }
+        ]
+      }
+    },
+    "orm": {
+      "type": "string",
+      "description": "Object Relational Mapper",
+      "default": "typeorm",
+      "enum": [
+        "typeorm",
+        "mongoose",
+        "prisma",
+        "sequelize"
+      ],
+      "x-prompt": {
+        "message": "What ORM do want to you use?",
+        "type": "list",
+        "items": [
+          {
+            "value": "typeorm",
+            "label": "Typeorm"
+          },
+          {
+            "value": "mongoose",
+            "label": "Mongoose"
+          },
+          {
+            "value": "prisma",
+            "label": "Prisma"
+          },
+          {
+            "value": "sequelize",
+            "label": "Sequelize"
+          }
+        ]
+      }
+    }
+  },
+  "required": ["name"]
+}
