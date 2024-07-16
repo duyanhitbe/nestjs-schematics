@@ -68,6 +68,12 @@
           }
         ]
       }
+    },
+    "cqrs": {
+      "type": "boolean",
+      "description": "Should use CQRS",
+      "default": true,
+      "x-prompt": "Would you want to use CQRS pattern?"
     }
   },
   "required": ["name"]
