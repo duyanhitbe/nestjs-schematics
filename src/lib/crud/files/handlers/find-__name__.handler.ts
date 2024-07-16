@@ -9,8 +9,8 @@ export class Find<%= classify(name) %>Handler implements IQueryHandler<Find<%= c
   async execute(command: Find<%= classify(name) %>Query) {
     const { query } = command;
     return this.<%= lowercased(name) %>Service.paginated({
-      limit: +query.limit,
-      page: +query.page,
+      limit: +query.limit || 10,
+      page: +query.page || 1,
     });
   }
 }

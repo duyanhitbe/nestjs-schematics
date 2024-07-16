@@ -1,7 +1,7 @@
 import { <%= classify(name) %>Entity } from './entities/<%= name %>.entity';
-import { Repository } from 'typeorm';
+import { Repository, FindOneOptions, FindManyOptions } from 'typeorm';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
-import { Find<%= classify(name) %>ByIdOptions, <%= classify(name) %>Paginated, <%= classify(name) %>PaginatedOptions } from './<%= name %>';
+import { Paginated<%= classify(name) %> } from "./dto/paginated-<%= name %>.dto";
 
 export abstract class I<%= classify(name) %>Service extends Repository<<%= classify(name) %>Entity> {
   /**
@@ -28,7 +28,7 @@ export abstract class I<%= classify(name) %>Service extends Repository<<%= class
    * @returns Promise<IPaginationResponse<<%= classify(name) %>Entity>>
    * @example this.<%= name %>Service.paginated({ limit: '10', page: '1' })
    */
-  abstract paginated(options: <%= classify(name) %>PaginatedOptions): Promise<<%= classify(name) %>Paginated>;
+  abstract paginated(options: Paginated<%= classify(name) %>Options): Promise<Paginated<%= classify(name) %>>;
 
   /**
    * Update <%= name %> by id
@@ -55,3 +55,10 @@ export abstract class I<%= classify(name) %>Service extends Repository<<%= class
    */
   abstract softRemoveById(id: string): Promise<<%= classify(name) %>Entity | null>;
 }
+
+export type Paginated<%= classify(name) %>Options = FindManyOptions<<%= classify(name) %>Entity> & {
+  limit?: number;
+  page?: number;
+};
+
+export type Find<%= classify(name) %>ByIdOptions = Omit<FindOneOptions<<%= classify(name) %>Entity>, 'where'>;

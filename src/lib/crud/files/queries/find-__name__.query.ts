@@ -1,4 +1,4 @@
-import { Paginated<%= classify(name) %>Query } from '../dto/paginated-<%= name %>-query.dto';
+import { Paginated<%= classify(name) %>Query } from '../dto/paginated-<%= name %>.dto';
 
 export class Find<%= classify(name) %>Query {
   query!: Paginated<%= classify(name) %>Query;

@@ -5,19 +5,24 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from 'typeorm';<% if (isSwaggerInstalled) { %>
+import { ApiProperty } from '@nestjs/swagger';<% } %>
 
 @Entity('<%= underscore(name) %>')
 export class <%= classify(name) %>Entity extends BaseEntity {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')<% if (isSwaggerInstalled) { %>
+  @ApiProperty()<% } %>
   id!: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn()<% if (isSwaggerInstalled) { %>
+  @ApiProperty()<% } %>
   createdAt!: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn()<% if (isSwaggerInstalled) { %>
+  @ApiProperty()<% } %>
   updatedAt!: Date;
 
-  @DeleteDateColumn()
+  @DeleteDateColumn()<% if (isSwaggerInstalled) { %>
+  @ApiProperty()<% } %>
   deletedAt?: Date;
 }

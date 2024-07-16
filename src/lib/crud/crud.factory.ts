@@ -38,6 +38,9 @@ function generateFilter(options: CrudOptions): Rule {
     if (path.endsWith('.handler.ts') || path.endsWith('.command.ts') || path.endsWith('.query.ts')) {
       return options.cqrs;
     }
+    if (path.endsWith('.swagger.ts')) {
+      return options.isSwaggerInstalled;
+    }
     return true;
   });
 }

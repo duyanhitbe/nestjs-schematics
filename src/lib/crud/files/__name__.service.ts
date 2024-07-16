@@ -3,8 +3,9 @@ import { Injectable } from '@nestjs/common';
 import { <%= classify(name) %>Entity } from './entities/<%= name %>.entity';
 import { Repository } from 'typeorm';<% } %>
 import { I<%= classify(name) %>Service } from './<%= name %>.interface';
-import { Find<%= classify(name) %>ByIdOptions, <%= classify(name) %>Paginated, <%= classify(name) %>PaginatedOptions } from './<%= name %>';
+import { Find<%= classify(name) %>ByIdOptions, Paginated<%= classify(name) %>Options } from './<%= name %>.interface';
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { Paginated<%= classify(name) %> } from "./dto/paginated-<%= name %>.dto";
 
 @Injectable()
 <% if (orm === 'typeorm') { %>export class <%= classify(name) %>Service extends I<%= classify(name) %>Service {
@@ -29,7 +30,7 @@ import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity
     });
   }
 
-  async paginated(options: <%= classify(name) %>PaginatedOptions): Promise<<%= classify(name) %>Paginated> {
+  async paginated(options: Paginated<%= classify(name) %>Options): Promise<Paginated<%= classify(name) %>> {
     const { limit = 10, page = 1 } = options;
     const take = limit === -1 ? undefined : limit;
     const skip = limit === -1 ? undefined : limit * (+page - 1);

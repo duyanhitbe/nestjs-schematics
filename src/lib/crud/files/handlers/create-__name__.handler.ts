@@ -8,6 +8,6 @@ export class Create<%= classify(name) %>Handler implements ICommandHandler<Creat
 
   async execute(command: Create<%= classify(name) %>Command) {
     const { data } = command;
-    return this.<%= lowercased(name) %>Service.create(data);
+    return this.<%= lowercased(name) %>Service.create(data).save();
   }
 }
