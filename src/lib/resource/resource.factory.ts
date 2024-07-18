@@ -119,8 +119,8 @@ function generate(options: ResourceOptions): Source {
         }
         return true;
       }),
-      options.spec 
-        ? noop() 
+      options.spec
+        ? noop()
         : filter((path) => {
             const suffix = `.__specFileSuffix__.ts`;
             return !path.endsWith(suffix)
@@ -141,7 +141,7 @@ function generate(options: ResourceOptions): Source {
     ])(context);
 }
 
-function addDeclarationToModule(options: ResourceOptions): Rule {
+export function addDeclarationToModule(options: ResourceOptions): Rule {
   return (tree: Tree) => {
     if (options.skipImport !== undefined && options.skipImport) {
       return tree;

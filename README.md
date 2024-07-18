@@ -2,37 +2,85 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/schematics.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/schematics.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/schematics.svg" alt="NPM Downloads" /></a>
-  <a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<p align="center">A package extend <a href="https://www.npmjs.com/package/@nestjs/schematics">@nestjs/schematics</a> with more generating features</p>
 
 ## Description
 
-The Nest CLI is a command-line interface tool that helps you to initialize, develop, and maintain your Nest applications. It assists in multiple ways, including scaffolding the project, serving it in development mode, and building and bundling the application for production distribution. It embodies best-practice architectural patterns to encourage well-structured apps. Read more [here](https://docs.nestjs.com/cli/overview).
+This package extends all functions from [@nestjs/schematics](https://www.npmjs.com/package/@nestjs/schematics) and has more customization ones. This package helps a lot in generating CRUD module. It is so useful when you work with ORM like Typeorm or Mongoose.
 
 ## Installation
 
 ```bash
-$ npm install -g @duyanhit/nestjs-schematics
+$ npm install -d @duyanhit/nestjs-schematics
 ```
 
 ## Usage
+After installing, make sure you have adjusted your configuration in `nest-cli.json`
+```json
+{
+  ...
+  "collection": "@duyanhit/nestjs-schematics",
+  ...
+}
 
-Learn more in the [official documentation](https://docs.nestjs.com/).
+```
+Now, let's try yourself with a new feature.
+
+### CRUD
+This function will generate a whole CRUD module base on your chosen ORM
+```bash
+$ nest g crud name
+```
+It will ask you about the transport layer. Currently, it just supports 2 layers `Restful` and `GraphQL (code first)`
+```bash
+? What transport layer do you use? (Use arrow keys)
+❯ Restful API 
+  GraphQL (code first)
+```
+Next, you can choose which ORM you want to use
+```bash
+? What ORM do want to you use? (Use arrow keys)
+❯ Typeorm 
+  Mongoose 
+  Prisma 
+  Sequelize
+```
+Specifically, this function supports generating module with CQRS pattern.
+```bash
+? Would you want to use CQRS pattern? (Y/n)
+```
+After you have done, the tree can be like this:
+```bash
+src/apis/user
+├── commands
+│   ├── create-user.command.ts
+│   ├── remove-user.command.ts
+│   └── update-user.command.ts
+├── dto
+│   ├── create-user.dto.ts
+│   ├── paginated-user.dto.ts
+│   └── update-user.dto.ts
+├── entities
+│   └── user.entity.ts
+├── handlers
+│   ├── create-user.handler.ts
+│   ├── find-one-user.handler.ts
+│   ├── find-user.handler.ts
+│   ├── remove-user.handler.ts
+│   └── update-user.handler.ts
+├── queries
+│   ├── find-one-user.query.ts
+│   └── find-user.query.ts
+├── user.controller.ts
+├── user.interface.ts
+├── user.module.ts
+├── user.service.ts
+└── user.swagger.ts
+```
 
 ## Stay in touch
-
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Thanks for considering this package. I hope you enjoy it. :)
+This package is still developed. I will make it better with more amazing features. 
+If you have any ideas or questions, contact me through:
+- Email - [duyanh.it.work@gmail.com](mailto:duyanh.it.work@gmail.com)
+- Linkedin - [Linkedin](https://www.linkedin.com/in/duy-anh-nguyen-a62292249/)
